@@ -1,0 +1,7 @@
+body {
+  font-family: sans-serif;
+  max-width: 98%;
+  background-image: url("./assets/apartment.jpg");
+  background-size: 2400px;
+  background-repeat: no-repeat;
+}
