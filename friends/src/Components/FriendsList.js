@@ -6,9 +6,12 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import Friends from "./Friends";
 import FriendForm from "./FriendForm";
 
+import { Button, Jumbotron } from "react-bootstrap";
+
 const FriendsList = (props) => {
   console.log(props);
   const [friends, setFriends] = useState([]);
+  const image = { "background-image": "./assets/apartment.jpg" };
 
   axiosWithAuth()
     .get("/friends")
@@ -20,22 +23,24 @@ const FriendsList = (props) => {
 
   return (
     <>
-      <Link to="/">
-        <button className="go-home-button">Home</button>
-      </Link>
-      <div>
-        <div className="friends-container">
-          {friends.map((friend) => (
-            <Friends
-              key={friend.id}
-              name={friend.name}
-              age={friend.age}
-              email={friend.email}
-            />
-          ))}
+      <Jumbotron style={image}>
+        <Link to="/">
+          <Button variant="primary">Home</Button>{" "}
+        </Link>
+        <div>
+          <div className="friends-container">
+            {friends.map((friend) => (
+              <Friends
+                key={friend.id}
+                name={friend.name}
+                age={friend.age}
+                email={friend.email}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      <FriendForm />
+        <FriendForm />
+      </Jumbotron>
     </>
   );
 

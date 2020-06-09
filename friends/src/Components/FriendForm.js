@@ -4,6 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 // import { InitialContext } from "../contexts/InitialContext";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import { Form, Button } from "react-bootstrap";
 
 const formSchema = yup.object().shape({
   name: yup.string().required("full name now"),
@@ -84,60 +85,69 @@ export default function FriendForm() {
   };
 
   return (
-    <div className="form-container">
-      <h1>Add New Friend</h1>
-      <form onSubmit={formSubmit}>
-        <label htmlFor="name">
-          Name
-          <input
-            id="name"
-            type="text"
-            name="name"
-            value={formState.name}
-            onChange={inputChange}
-          />
-          {/* {errors.name.length > 0 ? (
-            <p className="error">{errors.name}</p>
-          ) : null} */}
-        </label>
+    <>
+      {/* <div className="form-container">
+        <h1>Add New Friend</h1>
+        <form onSubmit={formSubmit}>
+          <label htmlFor="name">
+            Name
+            <input
+              id="name"
+              type="text"
+              name="name"
+              value={formState.name}
+              onChange={inputChange}
+            />
+          </label>
 
-        <label htmlFor="age">
-          Age
-          <input
-            id="age"
-            type="age"
-            name="age"
-            value={formState.age}
-            onChange={inputChange}
-            data-cy="age"
-          />
-          {/* {errors.age.length > 0 ? <p className="error">{errors.age}</p> : null} */}
-        </label>
-        <label htmlFor="height">
-          Email
-          <input
-            id="height"
-            type="text"
-            name="email"
-            value={formState.email}
-            onChange={inputChange}
-            data-cy="email"
-          />
-          {/* {errors.height.length > 0 ? (
-            <p className="error">{errors.email}</p>
-          ) : null} */}
-        </label>
+          <label htmlFor="age">
+            Age
+            <input
+              id="age"
+              type="age"
+              name="age"
+              value={formState.age}
+              onChange={inputChange}
+              data-cy="age"
+            />
+          </label>
+          <label htmlFor="height">
+            Email
+            <input
+              id="height"
+              type="text"
+              name="email"
+              value={formState.email}
+              onChange={inputChange}
+              data-cy="email"
+            />
+          </label>
 
-        <button className="add-button" disabled={buttonDisabled}>
-          Add to apartment
-        </button>
-      </form>
-      {/* <Link to="/smurf-village">
-        <button className="button">See The Friends!</button>
-      </Link>
-      <Link to="/">
-        <button className="button">Home</button>
-      </Link> */}
-    </div>
+          <button className="add-button" disabled={buttonDisabled}>
+            Add to apartment
+          </button>
+        </form>
+      </div> */}
+      <Form onSubmit={formSubmit}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Form.Group controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </>
   );
 }

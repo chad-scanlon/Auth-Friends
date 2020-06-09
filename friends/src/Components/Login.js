@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Form, Button } from "react-bootstrap";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 class Login extends React.Component {
@@ -57,15 +57,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-
-// const Login = () => {
-//   const [userName, setUserName] = useState();
-//   const [password, setPassword] = useState();
-
-//   const handleChange = e => {
-//       set
-//   }
-//   return <div>Login</div>;
-// };
-
-// export default Login;

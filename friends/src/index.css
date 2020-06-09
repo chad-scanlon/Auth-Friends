@@ -1,7 +1,11 @@
 body {
   font-family: sans-serif;
-  max-width: 98%;
+  /* max-width: 98%; */
   background-image: url("./assets/apartment.jpg");
-  background-size: 2400px;
+  /* background-size: 1800px; */
   background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
